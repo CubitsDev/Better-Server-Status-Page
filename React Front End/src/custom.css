@@ -1,0 +1,249 @@
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background: #28b29b;
+    background: linear-gradient(to bottom, #28b29b 0%, #bde8a1 50%, #bde8a1 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#28b29b', endColorstr='#bde8a1',GradientType=0 );
+    color: #31705F;
+    overflow: hidden;
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    font-weight: 100;
+  }
+  
+  a {
+    color: #204F57;
+    transition: color 0.2s ease-in-out;
+  }
+  a:hover {
+    color: #102A2D;
+  }
+  
+  .container {
+    padding-top: 40px;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 90%;
+    margin-left: 5%;
+    height: calc(100% - 40px);
+    padding-bottom: 100%;
+  }
+  
+  .logo {
+    text-align: center;
+  }
+  
+  .loader {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    width: 150px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  .loader.active {
+    opacity: 1;
+  }
+  .loader:before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+  
+  .circular {
+    -webkit-animation: rotate 2s linear infinite;
+    animation: rotate 2s linear infinite;
+    height: 100%;
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  
+  .path {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    -webkit-animation: dash 1.5s ease-in-out, color 6s ease-in-out;
+    animation: dash 1.5s ease-in-out, color 6s ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    stroke-linecap: round;
+  }
+  
+  @-webkit-keyframes rotate {
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes rotate {
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes dash {
+    0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -35px;
+    }
+    100% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -124px;
+    }
+  }
+  @keyframes dash {
+    0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -35px;
+    }
+    100% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -124px;
+    }
+  }
+  @-webkit-keyframes color {
+    100%, 0% {
+      stroke: #008744;
+    }
+    40% {
+      stroke: #ffa700;
+    }
+    66% {
+      stroke: #d62d20;
+    }
+    80%, 90% {
+      stroke: #d62d20;
+    }
+  }
+  @keyframes color {
+    100%, 0% {
+      stroke: #008744;
+    }
+    40% {
+      stroke: #ffa700;
+    }
+    66% {
+      stroke: #d62d20;
+    }
+    80%, 90% {
+      stroke: #d62d20;
+    }
+  }
+  .status {
+    width: 125px;
+    height: 125px;
+    margin-top: 10px;
+    border-radius: 300px;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, background-color 0.5s ease-in-out;
+  }
+  .status::after {
+    display: block;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    color: white;
+    font-weight: 100;
+  }
+  
+  .status-active {
+    opacity: 1;
+  }
+  
+  .status-ok {
+    background-color: #008744;
+  }
+  .status-ok::after {
+    content: "Online";
+  }
+  
+  .status-slow::after {
+    content: "Slow Network";
+    text-align: center;
+  }
+  
+  .status-down::after {
+    content: "Down";
+  }
+
+  .status-unknown::after {
+    content: "Unknown";
+  }
+  
+  .status-slow {
+    background-color: #ffa700;
+  }
+
+  .status-unknown {
+    background-color: #8d9da1;
+  }
+  
+  .status-down {
+    background-color: #d62d20;
+  }
+  
+  
+  footer {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  #intervalStatus {
+    margin-top: 10px;
+  }
+  
+  @media only screen and (max-width: 767px) {
+    h1 {
+      font-size: 24px;
+      font-weight: 300;
+    }
+  
+    .github-button {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  ::-moz-selection, ::-moz-selection {
+    background-color: #204F57;
+    color: white;
+  }
+  ::selection, ::-moz-selection {
+    background-color: #204F57;
+    color: white;
+  }
+  
